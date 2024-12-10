@@ -2,20 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Nico Moji";
+  src: url('/NicoMoji-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --text: #01130b;
+  --bg2: hsl(268, 59%, 74%, 5%);
+  --background: #d9feef;
+  --primary: #71fbbf;
+  --secondary: #2f0599;
+  --accent: #d308f7;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --text: #e8e2ee;
+    --bg2: hsl(268, 59%, 74%, 5%);
+    --background: #07040a;
+    --primary: #b994e3;
+    --secondary: #4c148a;
+    --accent: #7b0df5;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.main-font {
+  font-family: "Nico Moji";
+  font-style: normal;
+}
+
+/* disable buttons on number inputs */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
