@@ -9,28 +9,29 @@
   font-style: normal;
 }
 
-:root {
-  --text: #01130b;
-  --bg2: hsl(268, 59%, 74%, 5%);
-  --background: #d9feef;
-  --primary: #71fbbf;
-  --secondary: #2f0599;
-  --accent: #d308f7;
+@font-face {
+  font-family: "Inter";
+  src: url('/InterVariable.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #e8e2ee;
-    --bg2: hsl(268, 59%, 74%, 5%);
-    --background: #07040a;
-    --primary: #b994e3;
-    --secondary: #4c148a;
-    --accent: #7b0df5;
-  }
+:root {
+  --text: #e8e2ee;
+  --bg2: hsl(268, 59%, 74%, 5%);
+  --background: #07040a;
+  --primary: #b994e3;
+  --secondary: #4c148a;
+  --accent: #7b0df5;
 }
 
 .main-font {
   font-family: "Nico Moji";
+  font-style: normal;
+}
+
+.inter {
+  font-family: "Inter";
   font-style: normal;
 }
 

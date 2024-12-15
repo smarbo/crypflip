@@ -3,19 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "PORT=3003 next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@metamask/providers": "^18.2.0",
     "google-fonts": "^1.0.0",
+    "metamask": "0.0.1-security",
     "next": "15.0.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-font": "^1.2.1",
     "react-google-fonts": "^1.2.1",
-    "react-icons": "^5.4.0"
+    "react-icons": "^5.4.0",
+    "web3": "^4.16.0"
   },
   "devDependencies": {
     "@types/node": "^20",

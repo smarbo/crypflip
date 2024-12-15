@@ -15,7 +15,7 @@ export default function Sidebar() {
   }
 
   return (
-    <div className={`fixed flex z-[999] transition-[0.3s] xl:left-0 ${!toggled ? "-left-[240px]" : "left-0"} bottom-0 w-[240px] xl:w-[13%] bg-background h-[calc(100vh-4rem)] border-r-2 border-gray-500 flex-col text-left`}>
+    <div className={`fixed flex transition-[0.3s] xl:left-0 ${!toggled ? "-left-[240px]" : "left-0"} bottom-0 w-[240px] xl:w-[13%] bg-background h-[calc(100vh-4rem)] border-r-2 border-gray-500 flex-col text-left`}>
       <SidebarButton icon={FaRocket} name="Crash" />
       <SidebarButton icon={FaGem} name="Mines" />
       <SidebarButton icon={GiStoneTower} name="Towers" />

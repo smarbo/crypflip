@@ -26,7 +26,7 @@ export default function Mines() {
     const multipliers: number[] = [];
 
     while (remainingSafe > 0 && remainingTiles > 0) {
-      const probability = remainingSafe / totalTiles;
+      const probability = remainingSafe / remainingTiles;
       const multiplier = 1 / probability
       multipliers.push(multiplier);
       remainingSafe--;
