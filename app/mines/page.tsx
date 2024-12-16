@@ -1,7 +1,6 @@
 "use client"
 
-import { FaBomb, FaCube, FaDiamond, FaGem } from "react-icons/fa6";
-import Sidebar from "../components/Sidebar";
+import { FaBomb, FaCube, FaGem } from "react-icons/fa6";
 import "react-icons/fa6"
 import { useState } from "react";
 
@@ -16,7 +15,7 @@ export default function Mines() {
   const [reward, setReward] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(true);
 
-  let multipliers = calculateMultipliers(numMines);
+  const multipliers = calculateMultipliers(numMines);
 
   function calculateMultipliers(numMines: number): number[] {
     const totalTiles = gridSize ** 2;
@@ -66,7 +65,7 @@ export default function Mines() {
   }
 
   function generateGrid(rows: number, cols: number, numMines: number) {
-    let grid = Array(rows)
+    const grid = Array(rows)
       .fill(0)
       .map(() => Array(cols).fill(0));
     let minesPlaced = 0;

@@ -14,7 +14,7 @@ export default function Lottery() {
     return () => {
       clearInterval(t);
     }
-  }, [])
+  }, [cdTime])
 
   function dateDiff(d1: number, d2: number): string {
     const ms = d2 - d1
@@ -23,7 +23,7 @@ export default function Lottery() {
     s -= m * 60;
     let h = Math.floor(m / 60);
     m -= h * 60;
-    let d = Math.floor(h / 24);
+    const d = Math.floor(h / 24);
     h -= d * 24;
     return `${d}:${h}:${m}:${s}`;
   }

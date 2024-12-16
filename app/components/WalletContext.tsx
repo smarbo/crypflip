@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, PropsWithChildren, useEffect, useState } from "react";
 import { MetaMaskInpageProvider } from "@metamask/providers"
 import Web3 from "web3";
 
@@ -21,7 +21,7 @@ const WalletContext = createContext<CtxValue>({
   walletAddress: "", async connectWallet() { }, web3: new Web3(), ethBalance: 0,
 });
 
-export const WalletProvider = ({ children }: any) => {
+export const WalletProvider = ({ children }: PropsWithChildren) => {
   const [walletAddress, setWalletAddress] = useState("");
   const [ethBalance, setEthBalance] = useState(0);
   const [web3, setWeb3] = useState<Web3>(new Web3());
