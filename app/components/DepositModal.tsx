@@ -1,4 +1,4 @@
-import { FaWindowClose } from "react-icons/fa"
+import { FaCube, FaWindowClose } from "react-icons/fa"
 import WalletContext from "./WalletContext";
 import BalanceManager from "../contracts/BalanceManager/init"
 import { useContext, useState } from "react";
@@ -47,9 +47,10 @@ export default function DepositModal({ close }: { close: () => void }) {
         <div className="grow font-sans px-4 pt-8">
           <label className="pl-2 mb-1 text-primary">Source Chain</label>
           <input className="cursor-pointer px-3 text-sm w-full h-[3rem] bg-background text-text border-solid border-gray-600 border-[1px] rounded-md" value="Holesky Testnet" disabled />
-          <input className="cursor-pointer px-2 text-sm w-full mt-2 h-[3rem] bg-background border-solid border-gray-600 border-[1px] rounded-md" value="Ethereum ($ETH)" disabled />
-          <input value={inputEth} onChange={(e) => { setInputEth(parseFloat(e.target.value)) }} className="focus:outline-none text-sm cursor-pointer px-3 w-full mt-2 h-[3rem] bg-background border-solid border-gray-600 border-[1px] rounded-md" placeholder="Amount" type="number" />
+          <input className="cursor-pointer px-3 text-sm w-full mt-2 h-[3rem] bg-background border-solid border-gray-600 border-[1px] rounded-md" value="Ethereum ($ETH)" disabled />
+          <input value={inputEth} onChange={(e) => { setInputEth(parseFloat(e.target.value)) }} className="focus:outline-none text-sm cursor-pointer px-3 w-full mt-2 h-[3rem] bg-background border-solid border-gray-600 border-[1px] rounded-md" placeholder="Amount (ETH)" type="number" />
           <label onClick={() => { setInputEth(floorToPrecision(ethBalance, 5)) }} className="mt-1 text-primary text-sm">Available: {ethBalance} ETH</label>
+          <h1 className="flex items-center">1 ETH :  <FaCube className="ml-2 mr-1 text-accent"></FaCube><span className="ml-1 mr-1 text-accent">4000</span></h1>
         </div>
         <div className="border-t border-[1px] p-2 border-gray-700 h-[60px]">
           <button onClick={walletAddress ? handleDeposit : connectWallet} className="bg-accent rounded-md text-lg w-full h-full">{walletAddress ? "Confirm" : "Connect Wallet"}</button>

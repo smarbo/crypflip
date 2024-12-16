@@ -2,7 +2,7 @@
 import "react-icons/fa6"
 import "react-icons/gi"
 import { FaBars, FaGem, FaRocket, FaX, } from "react-icons/fa6"
-import { GiCardAceSpades, GiStoneTower } from "react-icons/gi";
+import { GiCardAceSpades, GiGoldBar, GiStoneTower } from "react-icons/gi";
 import { FaDice } from "react-icons/fa";
 import { IconType } from "react-icons";
 import Link from "next/link";
@@ -15,14 +15,15 @@ export default function Sidebar() {
   }
 
   return (
-    <div className={`fixed flex transition-[0.3s] xl:left-0 ${!toggled ? "-left-[240px]" : "left-0"} bottom-0 w-[240px] xl:w-[13%] bg-background h-[calc(100vh-4rem)] border-r-2 border-gray-500 flex-col text-left`}>
+    <div className={`fixed z-50 flex transition-[0.3s] xl:left-0 ${!toggled ? "-left-[240px]" : "left-0"} bottom-0 w-[240px] xl:w-[13%] bg-background h-[calc(100vh-4rem)] border-r-2 border-gray-500 flex-col text-left`}>
       <SidebarButton icon={FaRocket} name="Crash" />
       <SidebarButton icon={FaGem} name="Mines" />
       <SidebarButton icon={GiStoneTower} name="Towers" />
       <SidebarButton icon={FaDice} name="Dice" />
       <SidebarButton icon={GiCardAceSpades} name="Blackjack" />
+      <SidebarButton icon={GiGoldBar} name="Slots" />
 
-      <button onClick={toggleMenu} className="z-[99999999] fixed flex xl:hidden items-center justify-center top-[15px] right-[15px] w-8 h-8 rounded-md bg-accent">
+      <button onClick={toggleMenu} className="z-[99999999] absolute flex xl:hidden items-center justify-center top-[15px] right-[-50px] w-8 h-8 rounded-md bg-accent">
         {toggled && <FaX className="text-text"></FaX>}
         {!toggled && <FaBars className="text-text"></FaBars>}
       </button>

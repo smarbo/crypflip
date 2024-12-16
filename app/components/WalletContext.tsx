@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { MetaMaskInpageProvider } from "@metamask/providers"
 import Web3 from "web3";
 
@@ -51,6 +51,7 @@ export const WalletProvider = ({ children }: any) => {
             setEthBalance(parseFloat(w3.utils.fromWei(b, "ether")))
           })
         }
+
         setWeb3(w3)
       } catch (err) {
         console.log(err)
@@ -59,6 +60,22 @@ export const WalletProvider = ({ children }: any) => {
       console.log("MetaMask not found.");
     }
   }
+
+  useEffect(() => {
+    if (!walletAddress || !web3) return;
+    const i = setInterval(async () => {
+      if (walletAddress != "") {
+        const balance = parseFloat(web3.utils.fromWei(await web3.eth.getBalance(walletAddress), "ether"));
+        if (ethBalance !== balance) {
+          console.log("balance change detected!");
+          setEthBalance(balance);
+        }
+      }
+    }, 5000)
+    return () => {
+      clearInterval(i);
+    }
+  }, [walletAddress, ethBalance, web3])
 
   return (
     <WalletContext.Provider value={{ walletAddress, connectWallet, web3, ethBalance }}>

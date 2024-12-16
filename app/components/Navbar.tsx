@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useContext, useState } from "react";
 import WalletContext from "./WalletContext";
 import DepositModal from "./DepositModal";
+import { FaCube } from "react-icons/fa";
 
 function shortAddr(str: string) {
   if (str.length <= 10) {
@@ -23,11 +24,12 @@ export default function Navbar() {
       <Link href={"/"} className="max-w-[160px] ml-5">
         <Image src="/banner.svg" alt="Crypflip banner" width={100000000} height={100000000} ></Image>
       </Link>
-      <div className="mr-16 flex items-center">
+      <h1 className="flex items-center"><span>Balance:</span> <FaCube className="text-accent ml-3 mr-1"></FaCube><span className="text-accent">150.00</span></h1>
+      <div className="mr-4 lg:mr-16 flex items-center">
         <button onClick={walletAddress ? () => { setDepositOpen(true) } : connectWallet} className="bg-accent max-w-32 truncate hover:bg-primary rounded-md px-6 py-2 text-text text-sm">
           {walletAddress ? "Deposit" : "Connect"}
         </button>
-        <h1 className="ml-4">{shortAddr(walletAddress)}</h1>
+        <h1 className="ml-4 hidden sm:inline">{shortAddr(walletAddress)}</h1>
       </div>
       {depositOpen && <DepositModal close={() => { setDepositOpen(false) }}></DepositModal>}
     </div >
